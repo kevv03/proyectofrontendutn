@@ -1,0 +1,11 @@
+main h1{
+    text-align: center;
+}
+
+.moviesCards{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: start;
+    margin: 0px 150px;
+}

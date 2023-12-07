@@ -1,0 +1,27 @@
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    padding: 40px;
+    background-color: dimgray;
+}
+
+.social h4, .our h4{
+    font-size: 20px;
+}
+
+.social div{
+    display: flex;
+    flex-direction: column;
+}
+
+.social div a{
+    text-decoration: none;
+    color: black;
+}
+
+.span{
+    font-weight: 900;
+}

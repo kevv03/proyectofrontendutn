@@ -1,0 +1,23 @@
+.card{
+    border: 1px solid gray;
+    max-width: 250px;
+    margin: 20px;
+}
+
+.card div img{
+    width: 250px;
+}
+
+.card h3{
+    text-align: center;
+    margin: 5px;
+}
+
+.desc{
+    text-align: start;
+    margin: 4px 10px;
+}
+
+.btn{
+    cursor: pointer;
+}

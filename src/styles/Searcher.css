@@ -1,0 +1,13 @@
+.searcher{
+    border: none;
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: center;
+}
+
+.searcher input{
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 2px 7px 2px 5px;
+    font-size: 14px;
+}
