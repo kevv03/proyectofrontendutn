@@ -31,7 +31,7 @@ function UpdateForm() {
     const handleFileChange = (e) => {
         setPosterName(e.target.files[0]);
     }
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
@@ -44,17 +44,14 @@ function UpdateForm() {
         formData.append('language', movie.language);
         formData.append('genre', movie.genre);
         formData.append('posterName', posterName);
+        
+        const headers = {
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsTmFtZSI6ImhvbGFzZcOxb3Igc2XDsW9yIiwiZW1haWwiOiJrZXZpbkBnbWFpbC5jb20iLCJpYXQiOjE3MDEzODYwMDYsImV4cCI6MzMyMzczODYwMDZ9.x0lEtaSX9A6aaJ7xJaIpEZYpFt3ozArB8UKXo9yID6c',
+            'Content-Type': 'multipart/form-data'
+        }
 
         try {
-            const response = await fetch(finalURL, {
-                method: 'PUT',
-                headers: {
-                    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsTmFtZSI6ImhvbGFzZcOxb3Igc2XDsW9yIiwiZW1haWwiOiJrZXZpbkBnbWFpbC5jb20iLCJpYXQiOjE3MDEzODYwMDYsImV4cCI6MzMyMzczODYwMDZ9.x0lEtaSX9A6aaJ7xJaIpEZYpFt3ozArB8UKXo9yID6c',
-                    'Content-Type': 'multipart/form-data'
-                },
-                body: JSON.stringify(formData),
-            });
-
+            const response = await fetch(finalURL, formData, headers);
             if (response) {
                 console.log('Solicitud PUT exitosa');
             } else {
@@ -69,7 +66,7 @@ function UpdateForm() {
         <>
             <h3>Actualizar datos de una película</h3>
             <section className="formulario">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="id">ID:</label>
                         <input type="number" name="id" id="id" onChange={handleId} />
@@ -110,10 +107,9 @@ function UpdateForm() {
                         <label htmlFor="posterName">Imágen:</label>
                         <input type="file" name="posterName" id="posterName" onChange={handleFileChange} />
                     </div>
-                    <button type="submit" onClick={handleSubmit}>Enviar</button>
+                    <button type="submit">Enviar</button>
                 </form>
             </section>
-            <p>{id}</p>
         </>
     )
 }

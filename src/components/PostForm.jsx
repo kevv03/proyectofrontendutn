@@ -26,7 +26,7 @@ function PostForm() {
     };
 
     const handleSubmit = async (e) => {
-
+        e.preventDefault();
         const formData = new FormData();
         formData.append('title', movie.title);
         formData.append('release_date', movie.release_date);
